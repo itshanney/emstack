@@ -1,0 +1,40 @@
+---
+- name: Install AI skills agents
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    skills:
+      - advisor
+      - architect
+    gemini_dest: "~/.gemini/antigravity/skills"
+    claude_dest: "~/.claude/skills"
+
+  tasks:
+    - name: Ensure Gemini skill folders exist
+      ansible.builtin.file:
+        path: "{{ gemini_dest }}/{{ item }}"
+        state: directory
+        mode: '0755'
+      loop: "{{ skills }}"
+
+    - name: Ensure Claude skill folders exist
+      ansible.builtin.file:
+        path: "{{ claude_dest }}/{{ item }}"
+        state: directory
+        mode: '0755'
+      loop: "{{ skills }}"
+
+    - name: Copy SKILL.md files to Gemini
+      ansible.builtin.copy:
+        src: "files/{{ item }}/SKILL.md"
+        dest: "{{ gemini_dest }}/{{ item }}/SKILL.md"
+        mode: '0644'
+      loop: "{{ skills }}"
+
+    - name: Copy SKILL.md files to Claude
+      ansible.builtin.copy:
+        src: "files/{{ item }}/SKILL.md"
+        dest: "{{ claude_dest }}/{{ item }}/SKILL.md"
+        mode: '0644'
+      loop: "{{ skills }}"
