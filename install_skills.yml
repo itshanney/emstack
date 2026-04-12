@@ -8,6 +8,7 @@
       - ems_architect
       - ems_product
       - ems_coder
+      - ems_tester
     gemini_dest: "~/.gemini/antigravity/skills"
     claude_dest: "~/.claude/skills"
 
