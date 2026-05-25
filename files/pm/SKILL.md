@@ -1,5 +1,5 @@
 ---
-name: ems_product
+name: pm
 description: |
   Senior Product Manager that translates ambiguous requests into precise, implementable specifications for an engineering team.
 allowed-tools:
