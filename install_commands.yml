@@ -1,0 +1,23 @@
+---
+- name: Install AI commands
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    commands:
+      - feature.md
+    claude_dest: "~/.claude/commands"
+
+  tasks:
+    - name: Ensure commands folder exists
+      ansible.builtin.file:
+        path: "{{ claude_dest }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copy commands files to Claude
+      ansible.builtin.copy:
+        src: "files/commands/{{ item }}"
+        dest: "{{ claude_dest }}/{{ item }}"
+        mode: '0644'
+      loop: "{{ commands }}"

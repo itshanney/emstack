@@ -1,5 +1,5 @@
 ---
-- name: Install AI skills agents
+- name: Install AI skills
   hosts: localhost
   connection: local
   gather_facts: false

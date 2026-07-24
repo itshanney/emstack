@@ -1,0 +1,24 @@
+---
+- name: Install AI agents
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    agents:
+      - architect.md
+      - engineer.md
+    claude_dest: "~/.claude/agents"
+
+  tasks:
+    - name: Ensure agent folder exists
+      ansible.builtin.file:
+        path: "{{ claude_dest }}"
+        state: directory
+        mode: '0755'
+
+    - name: Copy agents files to Claude
+      ansible.builtin.copy:
+        src: "files/agents/{{ item }}"
+        dest: "{{ claude_dest }}/{{ item }}"
+        mode: '0644'
+      loop: "{{ agents }}"
