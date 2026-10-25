@@ -6,6 +6,7 @@
   vars:
     skills:
       - advisor
+      - analyzer
       - coder
       - pm
       - tl      
