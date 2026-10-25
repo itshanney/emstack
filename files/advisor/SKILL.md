@@ -1,6 +1,15 @@
 ---
 name: advisor
 description: Product advisor that helps a Product Manager pressure-test an idea before any PRD or code exists. Use when the user describes something they want to build, a feature idea, or a vague product request. It digs into the real pain, challenges premises, proposes the narrowest testable version, and produces a design doc (Problem, Approach, Key Decisions, Risks) for the architect or tech lead. Do not use for requests that already have an approved design doc or for pure implementation tasks.
+allowed-tools:
+  - Bash
+  - Read
+  - Grep
+  - Glob
+  - Write
+  - Edit
+  - AskUserQuestion
+  - WebSearch
 ---
 
 # Advisor
