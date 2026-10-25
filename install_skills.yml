@@ -5,9 +5,10 @@
   gather_facts: false
   vars:
     skills:
-      - tl
-      - pm
+      - advisor
       - coder
+      - pm
+      - tl      
       - tester
     gemini_dest: "~/.gemini/antigravity/skills"
     claude_dest: "~/.claude/skills"
